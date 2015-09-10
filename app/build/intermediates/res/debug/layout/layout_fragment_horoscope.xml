@@ -1,142 +1,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#c9cdc7"
+    android:background="#1ccdc4"
     tools:context="com.example.tata.horoskop.HomeActivity">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/aries" />
 
     <com.lukedeighton.wheelview.WheelView
         android:id="@+id/wheelview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:wheelColor="#ffffff"
+        app:repeatItems="true"
         app:rotatableWheelDrawable="false"
         app:selectionAngle="90.0"
-        app:wheelPosition="bottom"
-        app:wheelOffsetY="80dp"
-        app:repeatItems="true"
-        app:wheelRadius="276dp"
+        app:wheelColor="#db54ff"
         app:wheelItemCount="12"
+        app:wheelItemRadius="43dp"
+        app:wheelOffsetY="80dp"
         app:wheelPadding="13dp"
-        app:wheelItemRadius="43dp"/>
-<!--<RelativeLayout-->
-    <!--android:layout_centerInParent="true"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content">-->
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_aries"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="15dp"-->
+        app:wheelPosition="bottom"
+        app:wheelRadius="276dp" />
 
-        <!--android:src="@drawable/aries" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_taurus"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="15dp"-->
-
-        <!--android:layout_toRightOf="@+id/iv_aries"-->
-        <!--android:src="@drawable/taurus" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_gemini"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="15dp"-->
-
-        <!--android:layout_toRightOf="@+id/iv_taurus"-->
-        <!--android:src="@drawable/gemini" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_cancer"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:padding="15dp"-->
-
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/iv_taurus"-->
-        <!--android:src="@drawable/cancer" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_leo"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="15dp"-->
-
-        <!--android:layout_below="@+id/iv_gemini"-->
-        <!--android:layout_toRightOf="@id/iv_cancer"-->
-        <!--android:src="@drawable/leo" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_virgo"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="15dp"-->
-
-        <!--android:layout_below="@+id/iv_gemini"-->
-        <!--android:layout_toRightOf="@id/iv_leo"-->
-        <!--android:src="@drawable/virgo" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_libra"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="15dp"-->
-
-        <!--android:layout_below="@+id/iv_cancer"-->
-        <!--android:src="@drawable/libra" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_scorpio"-->
-        <!--android:padding="15dp"-->
-
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/iv_leo"-->
-        <!--android:layout_toRightOf="@id/iv_libra"-->
-        <!--android:src="@drawable/scorpio" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_sagittarius"-->
-        <!--android:padding="15dp"-->
-
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@+id/iv_virgo"-->
-        <!--android:layout_toRightOf="@id/iv_scorpio"-->
-        <!--android:src="@drawable/sagittarius" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_capricorn"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="15dp"-->
-
-        <!--android:layout_below="@+id/iv_libra"-->
-        <!--android:src="@drawable/capricorn" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_aquaris"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="15dp"-->
-
-        <!--android:layout_below="@+id/iv_scorpio"-->
-        <!--android:layout_toRightOf="@id/iv_capricorn"-->
-        <!--android:src="@drawable/aquarius" />-->
-
-    <!--<ImageView-->
-        <!--android:id="@+id/iv_pisces"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="15dp"-->
-        <!--android:layout_below="@+id/iv_sagittarius"-->
-        <!--android:layout_toRightOf="@id/iv_aquaris"-->
-        <!--android:src="@drawable/pisces" />-->
-
-<!--</RelativeLayout>-->
 
 </RelativeLayout>
-<!-- From: file:/C:/Users/HP/AndroidStudioProjects/Horoskop/app/src/main/res/layout/layout_fragment_horoscope.xml -->
+<!-- From: file:/home/bataemperor/StudioProjects/horoscope1/app/src/main/res/layout/layout_fragment_horoscope.xml -->

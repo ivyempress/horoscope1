@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\HP\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-3ddeafdba0996f126b7ad82d9d2c34b594e28de6.jar" />
-    </item>
-    <item
-        jar="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\pre-dexed\debug\classes-15eab412e45e04c679911095d0358945695bc7c2.jar" />
-    </item>
-    <item
-        jar="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\pre-dexed\debug\classes-36195155e71d74b3fb99fe43c5efefbc8e7d8176.jar" />
-    </item>
-    <item
-        jar="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\exploded-aar\com.android.support\design\22.2.1\jars\classes.jar"
+        jar="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="1821601ddbec5ff125653097812823388700af74">
-        <dex dex="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\pre-dexed\debug\classes-baeb7c7203478fd3e816317026f214500c1f2d63.jar" />
+        <dex dex="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/pre-dexed/debug/classes-c5987ec05319f5bc29b09c39a160623b2c2e13f5.jar" />
     </item>
     <item
-        jar="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\exploded-aar\com.github.lukedeighton\wheelview\0.3.1\jars\classes.jar"
+        jar="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/exploded-aar/com.github.lukedeighton/wheelview/0.3.1/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="7c221cf218c9fa50316e7364919b667791ed7421">
-        <dex dex="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\pre-dexed\debug\classes-0eba66adc241877fd9ae1289965c3f980a826498.jar" />
+        <dex dex="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/pre-dexed/debug/classes-58c3a2be31e9758eb0b2cc6efe8a4f2d06471216.jar" />
     </item>
     <item
-        jar="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jar="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="C:\Users\HP\AndroidStudioProjects\Horoskop\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-c859f077b21557a38a2bf3420a7ae2c458d1be02.jar" />
+        <dex dex="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-d6653b00bb86ae734f9eaa5bf9ce75126ac4fd0d.jar" />
+    </item>
+    <item
+        jar="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/pre-dexed/debug/classes-e74faa9ccb3d485e71be05e28c6342b7c9f31048.jar" />
+    </item>
+    <item
+        jar="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/pre-dexed/debug/classes-707cf401d9f9c16f9588fd482208c8ceb79b225b.jar" />
+    </item>
+    <item
+        jar="/home/bataemperor/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/home/bataemperor/StudioProjects/horoscope1/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-7babf79a841a823dc76e404fc0c6632a39f33008.jar" />
     </item>
 
 </items>

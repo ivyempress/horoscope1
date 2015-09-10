@@ -1,89 +1,166 @@
 package com.example.tata.horoskop;
 
-import android.app.Activity;
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
 
-import com.example.tata.horoskop.fragment.ChineseFragment;
-import com.example.tata.horoskop.fragment.HoroscopeFragment;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
+
+
+import com.lukedeighton.wheelview.WheelView;
+import com.lukedeighton.wheelview.adapter.WheelAdapter;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ViewPager viewPager;
-    TabLayout tabLayout;
+    WheelView wheelView;
+    ImageView ivImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-        tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
-        viewPager.setAdapter(new HoroscopePagerAdapter(getSupportFragmentManager()));
-        tabLayout.setupWithViewPager(viewPager);
-    }
+        setContentView(R.layout.layout_fragment_horoscope);
+        ivImage = (ImageView) findViewById(R.id.iv_image);
+        wheelView = (WheelView) findViewById(R.id.wheelview);
+        wheelView.setAdapter(new WheelAdapter() {
+            @Override
+            public Drawable getDrawable(int position) {
+                //return drawable here - the position can be seen in the gifs above
+                Drawable drawable = getResources().getDrawable(R.drawable.aries);
+                switch (position) {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void onClick(View view) {
-        Log.d("ivana", "Dugme radi");
-    }
-
-    private class HoroscopePagerAdapter extends FragmentStatePagerAdapter{
-        String[] tabTitles = {"Horoscope","Chineese Horoscope","Fortune cookie","Something"};
-        public HoroscopePagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            Fragment fragment = null;
-            switch (position){
-                case 0: fragment = new HoroscopeFragment(); break;
-                case 1: fragment = new ChineseFragment(); break;
-                case 2: fragment = new HoroscopeFragment(); break;
-                case 3: fragment = new HoroscopeFragment(); break;
+                    case 0:
+                        drawable = getResources().getDrawable(R.drawable.aries);
+                        break;
+                    case 1:
+                        drawable = getResources().getDrawable(R.drawable.taurus);
+                        break;
+                    case 2:
+                        drawable = getResources().getDrawable(R.drawable.gemini);
+                        break;
+                    case 3:
+                        drawable = getResources().getDrawable(R.drawable.cancer);
+                        break;
+                    case 4:
+                        drawable = getResources().getDrawable(R.drawable.leo);
+                        break;
+                    case 5:
+                        drawable = getResources().getDrawable(R.drawable.virgo);
+                        break;
+                    case 6:
+                        drawable = getResources().getDrawable(R.drawable.libra);
+                        break;
+                    case 7:
+                        drawable = getResources().getDrawable(R.drawable.scorpio);
+                        break;
+                    case 8:
+                        drawable = getResources().getDrawable(R.drawable.sagittarius);
+                        break;
+                    case 9:
+                        drawable = getResources().getDrawable(R.drawable.capricorn);
+                        break;
+                    case 10:
+                        drawable = getResources().getDrawable(R.drawable.aquarius);
+                        break;
+                    case 11:
+                        drawable = getResources().getDrawable(R.drawable.pisces);
+                        break;
+                }
+                return drawable;
             }
-            return fragment;
-        }
 
-        @Override
-        public int getCount() {
-            return tabTitles.length;
-        }
+            @Override
+            public int getCount() {
+                //return the count
+                return 12;
+            }
 
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return tabTitles[position];
-        }
+            @Override
+            public Object getItem(int i) {
+                return null;
+            }
+        });
+        wheelView.setOnWheelItemClickListener(new WheelView.OnWheelItemClickListener() {
+            @Override
+            public void onWheelItemClick(WheelView parent, int position, boolean isSelected) {
+                //the position in the adapter and whether it is closest to the selection angle
+                switch (position) {
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
+                    case 8:
+                        break;
+                    case 9:
+                        break;
+                    case 10:
+                        break;
+                    case 11:
+                        break;
+                }
+            }
+        });
+        wheelView.setOnWheelItemSelectedListener(new WheelView.OnWheelItemSelectListener() {
+            @Override
+            public void onWheelItemSelected(WheelView wheelView, Drawable drawable, int i) {
+                switch (i) {
+                    case 0:
+                        ivImage.setImageResource(R.drawable.aries);
+                        break;
+                    case 1:
+                        ivImage.setImageResource(R.drawable.taurus);
+                        break;
+                    case 2:
+                        ivImage.setImageResource(R.drawable.gemini);
+                        break;
+                    case 3:
+                        ivImage.setImageResource(R.drawable.cancer);
+                        break;
+                    case 4:
+                        ivImage.setImageResource(R.drawable.leo);
+                        break;
+                    case 5:
+                        ivImage.setImageResource(R.drawable.virgo);
+                        break;
+                    case 6:
+                        ivImage.setImageResource(R.drawable.libra);
+                        break;
+                    case 7:
+                        ivImage.setImageResource(R.drawable.scorpio);
+                        break;
+                    case 8:
+                        ivImage.setImageResource(R.drawable.sagittarius);
+                        break;
+                    case 9:
+                        ivImage.setImageResource(R.drawable.capricorn);
+                        break;
+                    case 10:
+                        ivImage.setImageResource(R.drawable.aquarius);
+                        break;
+                    case 11:
+                        ivImage.setImageResource(R.drawable.pisces);
+                        break;
+                }
+            }
+        });
     }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(HomeActivity.this, ZodiacSignsActivity.class);
+        startActivity(intent);
+    }
+
 }

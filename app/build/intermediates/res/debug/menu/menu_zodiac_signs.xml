@@ -5,4 +5,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>
-<!-- From: file:/C:/Users/HP/AndroidStudioProjects/Horoskop/app/src/main/res/menu/menu_zodiac_signs.xml -->
+<!-- From: file:/home/bataemperor/StudioProjects/horoscope1/app/src/main/res/menu/menu_zodiac_signs.xml -->
