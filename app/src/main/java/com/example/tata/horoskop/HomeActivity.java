@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,10 +19,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     WheelView wheelView;
     ImageView ivImage;
+    Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_fragment_horoscope);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         ivImage = (ImageView) findViewById(R.id.iv_image);
         wheelView = (WheelView) findViewById(R.id.wheelview);
         wheelView.setAdapter(new WheelAdapter() {
