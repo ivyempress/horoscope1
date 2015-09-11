@@ -23,10 +23,13 @@
         app:wheelColor="#db54ff"
         app:wheelItemCount="12"
         app:wheelItemRadius="43dp"
-        app:wheelOffsetY="80dp"
+        app:wheelOffsetY="100dp"
         app:wheelPadding="13dp"
         app:wheelPosition="bottom"
-        app:wheelRadius="276dp" />
+        app:wheelRadius="276dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
