@@ -3,31 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1ccdc4"
+    android:background="#ffffff"
     tools:context="com.example.tata.horoskop.HomeActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2C3E50">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/horoscope"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+    </android.support.v7.widget.Toolbar>
 
     <ImageView
         android:id="@+id/iv_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
         android:src="@drawable/aries" />
 
     <com.lukedeighton.wheelview.WheelView
         android:id="@+id/wheelview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
         app:repeatItems="true"
         app:rotatableWheelDrawable="false"
         app:selectionAngle="90.0"
-        app:wheelColor="#db54ff"
+        app:wheelColor="#2C3E50"
         app:wheelItemCount="12"
-        app:wheelItemRadius="43dp"
-        app:wheelOffsetY="80dp"
-        app:wheelPadding="13dp"
+        app:wheelItemRadius="20dp"
+        app:wheelOffsetY="190dp"
+        app:wheelPadding="10dp"
         app:wheelPosition="bottom"
         app:wheelRadius="276dp" />
-
 
 </RelativeLayout>
 <!-- From: file:/home/bataemperor/StudioProjects/horoscope1/app/src/main/res/layout/layout_fragment_horoscope.xml -->

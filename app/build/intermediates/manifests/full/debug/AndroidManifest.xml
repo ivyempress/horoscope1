@@ -30,6 +30,10 @@
             android:name="com.example.tata.horoskop.ZodiacSignsActivity"
             android:label="@string/title_activity_zodiac_signs" >
         </activity>
+        <activity
+            android:name="com.example.tata.horoskop.ContactUsActivity"
+            android:label="@string/title_activity_contact_us" >
+        </activity>
     </application>
 
 </manifest>
