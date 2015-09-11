@@ -4,6 +4,10 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -12,19 +16,23 @@ import android.view.View;
 import android.widget.ImageView;
 
 
+import com.example.tata.horoskop.fragment.SignFragment;
 import com.lukedeighton.wheelview.WheelView;
 import com.lukedeighton.wheelview.adapter.WheelAdapter;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
-
+    ViewPager viewPager;
     WheelView wheelView;
     ImageView ivImage;
     Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_fragment_horoscope);
+        setContentView(R.layout.activity_home);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(),R.drawable.leo));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -94,28 +102,40 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 //the position in the adapter and whether it is closest to the selection angle
                 switch (position) {
                     case 0:
+                        wheelView.setPosition(0);
                         break;
                     case 1:
+                        wheelView.setPosition(1);
                         break;
                     case 2:
+                        wheelView.setPosition(2);
                         break;
                     case 3:
+                        wheelView.setPosition(3);
                         break;
                     case 4:
+                        wheelView.setPosition(4);
                         break;
                     case 5:
+                        wheelView.setPosition(5);
                         break;
                     case 6:
+                        wheelView.setPosition(6);
                         break;
                     case 7:
+                        wheelView.setPosition(7);
                         break;
                     case 8:
+                        wheelView.setPosition(8);
                         break;
                     case 9:
+                        wheelView.setPosition(9);
                         break;
                     case 10:
+                        wheelView.setPosition(10);
                         break;
                     case 11:
+                        wheelView.setPosition(11);
                         break;
                 }
             }
@@ -125,40 +145,40 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onWheelItemSelected(WheelView wheelView, Drawable drawable, int i) {
                 switch (i) {
                     case 0:
-                        ivImage.setImageResource(R.drawable.aries);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(),R.drawable.aries));
                         break;
                     case 1:
-                        ivImage.setImageResource(R.drawable.taurus);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.taurus));
                         break;
                     case 2:
-                        ivImage.setImageResource(R.drawable.gemini);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.gemini));
                         break;
                     case 3:
-                        ivImage.setImageResource(R.drawable.cancer);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.cancer));
                         break;
                     case 4:
-                        ivImage.setImageResource(R.drawable.leo);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.leo));
                         break;
                     case 5:
-                        ivImage.setImageResource(R.drawable.virgo);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.virgo));
                         break;
                     case 6:
-                        ivImage.setImageResource(R.drawable.libra);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.libra));
                         break;
                     case 7:
-                        ivImage.setImageResource(R.drawable.scorpio);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.scorpio));
                         break;
                     case 8:
-                        ivImage.setImageResource(R.drawable.sagittarius);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.sagittarius));
                         break;
                     case 9:
-                        ivImage.setImageResource(R.drawable.capricorn);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.capricorn));
                         break;
                     case 10:
-                        ivImage.setImageResource(R.drawable.aquarius);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.aquarius));
                         break;
                     case 11:
-                        ivImage.setImageResource(R.drawable.pisces);
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.pisces));
                         break;
                 }
             }
@@ -170,6 +190,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(HomeActivity.this, ZodiacSignsActivity.class);
         startActivity(intent);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -186,10 +207,59 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.contact) {
-            startActivity(new Intent(this,ContactUsActivity.class));
+            startActivity(new Intent(this, ContactUsActivity.class));
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class AdapterHoroscope extends FragmentStatePagerAdapter {
+        int signSrc;
+
+        public AdapterHoroscope(FragmentManager fm, int signSrc) {
+            super(fm);
+            this.signSrc = signSrc;
+        }
+
+        String[] titles = {"Daily", "Monthly", "Weekly"};
+
+        @Override
+        public Fragment getItem(int i) {
+            Fragment fragment = null;
+            Bundle bundle;
+            switch (i) {
+                case 0:
+                    fragment = new SignFragment();
+                    bundle = new Bundle();
+                    bundle.putInt("src", signSrc);
+                    fragment.setArguments(bundle);
+                    break;
+                case 1:
+                    fragment = new SignFragment();
+                    bundle = new Bundle();
+                    bundle.putInt("src", signSrc);
+                    fragment.setArguments(bundle);
+                    break;
+                case 2:
+                    fragment = new SignFragment();
+                    bundle = new Bundle();
+                    bundle.putInt("src", signSrc);
+                    fragment.setArguments(bundle);
+                    break;
+            }
+            return fragment;
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titles[position];
+        }
+
     }
 }

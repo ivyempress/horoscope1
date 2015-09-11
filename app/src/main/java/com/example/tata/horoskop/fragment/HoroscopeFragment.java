@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -28,7 +27,7 @@ public class HoroscopeFragment extends Fragment implements View.OnClickListener 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.layout_fragment_horoscope, container, false);
+        View view = inflater.inflate(R.layout.activity_home, container, false);
         ivImage = (ImageView) view.findViewById(R.id.iv_image);
 
         wheelView = (WheelView) view.findViewById(R.id.wheelview);
