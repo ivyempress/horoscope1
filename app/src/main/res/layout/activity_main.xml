@@ -68,7 +68,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:onClick="openChineseHoroscope"
-            android:src="@drawable/chinesehoroscope" />
+            android:src="@drawable/chinese" />
 
         <TextView
             android:layout_toRightOf="@+id/iv_chineseHoroscope"
