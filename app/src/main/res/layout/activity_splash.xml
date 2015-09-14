@@ -9,5 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffffff"
-        android:src="@drawable/horoscope"/>
+        android:src="@drawable/horoscope"
+
+        android:scaleType="centerCrop"/>
+
 </RelativeLayout>

@@ -3,7 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.tata.horoskop.MainActivity">
-
+    <ImageView
+        android:src="@drawable/test1"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <com.example.tata.horoskop.view.InfoViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"

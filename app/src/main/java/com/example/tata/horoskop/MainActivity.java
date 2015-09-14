@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.tata.horoskop.utility.DisplayManager;
 import com.example.tata.horoskop.view.FixedPageTransformer;
@@ -17,6 +18,8 @@ import com.example.tata.horoskop.view.InfoViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class MainActivity extends AppCompatActivity {
     private static final float PAGE_WIDTH = 0.8f;
@@ -99,9 +102,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openZodiacHoroscope(View view) {
+        Intent intent = new Intent(MainActivity.this, ChineseActivity.class);
+        startActivity(intent);
     }
 
     public void openFortuneCookie(View view) {
+        Intent intent = new Intent(MainActivity.this, FortuneActivity.class);
+        startActivity(intent);
     }
 
 
@@ -125,19 +132,23 @@ public class MainActivity extends AppCompatActivity {
             params.width = width = (int) (new DisplayManager().screenWidth * PAGE_WIDTH);
             view.setLayoutParams(params);
             ImageView ivImage = (ImageView) view.findViewById(R.id.ivHoroscope);
+            TextView tvText = (TextView) view.findViewById(R.id.tv_text);
             params = ivImage.getLayoutParams();
             //noinspection SuspiciousNameCombination
             params.height = (int) (width * (3f / 4f));
             ivImage.setLayoutParams(params);
             switch (position) {
                 case 0:
-                    ivImage.setImageResource(R.drawable.horoscopeicon);
+                    ivImage.setImageResource(R.drawable.h1);
+                    tvText.setText("Horoscope");
                     break;
                 case 1:
-                    ivImage.setImageResource(R.drawable.chinese);
+                    ivImage.setImageResource(R.drawable.h2);
+                    tvText.setText("Chinese Horoscope");
                     break;
                 case 2:
-                    ivImage.setImageResource(R.drawable.fortunecookie);
+                    ivImage.setImageResource(R.drawable.h3);
+                    tvText.setText("Fortune Cookie");
                     break;
             }
             container.addView(view);
@@ -149,8 +160,10 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(MainActivity.this, HomeActivity.class));
                             break;
                         case 1:
+                            startActivity(new Intent(MainActivity.this, ChineseActivity.class));
                             break;
                         case 2:
+                            startActivity(new Intent(MainActivity.this, FortuneActivity.class));
                             break;
 
                     }

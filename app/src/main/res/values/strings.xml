@@ -24,4 +24,6 @@
     <string name="horoscope_main">Horoscope</string>
     <string name="chinese_horoscope">Chinese horoscope</string>
     <string name="fortune_cookie">Fortune cookie</string>
+    <string name="title_activity_chinese">ChineseActivity</string>
+    <string name="title_activity_fortune">FortuneActivity</string>
 </resources>
