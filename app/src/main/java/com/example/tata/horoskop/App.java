@@ -1,14 +1,7 @@
 package com.example.tata.horoskop;
 
 import android.app.Application;
-import android.util.Log;
 
-import java.io.IOException;
-
-import horoscopeapi.HoroscopeAPI;
-import horoscopeapi.HoroscopeReading;
-import horoscopeapi.HoroscopeSign;
-import horoscopeapi.SQLExcpetion;
 
 
 public class App extends Application {

@@ -1,5 +1,6 @@
 package com.example.tata.horoskop;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
@@ -12,11 +13,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.tata.horoskop.fragment.SignFragment;
 import com.lukedeighton.wheelview.WheelView;
 import com.lukedeighton.wheelview.adapter.WheelAdapter;
+
+import java.util.Calendar;
 
 public class ChineseActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,7 +36,7 @@ public class ChineseActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_chinese);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(),R.drawable.leo));
+        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.leo));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -144,7 +149,7 @@ public class ChineseActivity extends AppCompatActivity implements View.OnClickLi
             public void onWheelItemSelected(WheelView wheelView, Drawable drawable, int i) {
                 switch (i) {
                     case 0:
-                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(),R.drawable.rat));
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.rat));
                         break;
                     case 1:
                         viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.ox));
@@ -206,7 +211,20 @@ public class ChineseActivity extends AppCompatActivity implements View.OnClickLi
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        Calendar calendar = Calendar.getInstance();
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.contact) {
+            startActivity(new Intent(this, ContactUsActivity.class));
+            return true;
+        }
+        if (id == R.id.calculate) {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    calculcateSign(year);
+                }
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            datePickerDialog.show();
             return true;
         }
 
@@ -259,4 +277,48 @@ public class ChineseActivity extends AppCompatActivity implements View.OnClickLi
         public CharSequence getPageTitle(int position) {
             return titles[position];
         }
-}}
+
+    }
+
+    public void calculcateSign(int year) {
+        if (year == 1972 || year == 1984 || year == 1996 || year == 2008) {
+            wheelView.setPosition(0);
+            Toast.makeText(this, "Your sign is rat", Toast.LENGTH_SHORT).show();
+        } else if (year == 1973 || year == 1985 || year == 1997 || year == 2009) {
+            wheelView.setPosition(1);
+            Toast.makeText(this, "Your sign is ox", Toast.LENGTH_SHORT).show();
+        } else if (year == 1974 || year == 1986 || year == 1998 || year == 2010) {
+            wheelView.setPosition(9);
+            Toast.makeText(this, "Your sign is tiger", Toast.LENGTH_SHORT).show();
+        } else if (year == 1975 || year == 1987 || year == 1999 || year == 2011) {
+            wheelView.setPosition(9);
+            Toast.makeText(this, "Your sign is rabbit", Toast.LENGTH_SHORT).show();
+        }else if (year == 1976 || year == 1988 || year == 2000 || year == 2012) {
+            wheelView.setPosition(9);
+            Toast.makeText(this, "Your sign is dragon", Toast.LENGTH_SHORT).show();
+        }else if (year == 1977 || year == 1989 || year == 2001 || year == 2013) {
+            wheelView.setPosition(9);
+            Toast.makeText(this, "Your sign is snake", Toast.LENGTH_SHORT).show();
+        }else if (year == 1978 || year == 1990 || year == 2002 || year == 2014) {
+            wheelView.setPosition(9);
+            Toast.makeText(this, "Your sign is horse", Toast.LENGTH_SHORT).show();
+        }else if (year == 1979 || year == 1991 || year == 2003 || year == 2015) {
+            wheelView.setPosition(9);
+            Toast.makeText(this, "Your sign is goat", Toast.LENGTH_SHORT).show();
+        }else if (year == 1980 || year == 1992 || year == 2004 || year == 2016) {
+            wheelView.setPosition(9);
+            Toast.makeText(this, "Your sign is monkey", Toast.LENGTH_SHORT).show();
+        }else if (year == 1981 || year == 1993 || year == 2005 || year == 2017) {
+            wheelView.setPosition(9);
+            Toast.makeText(this, "Your sign is rooster", Toast.LENGTH_SHORT).show();
+        }else if (year == 1982 || year == 1994 || year == 2006 || year == 2018) {
+            wheelView.setPosition(9);
+            Toast.makeText(this, "Your sign is dog", Toast.LENGTH_SHORT).show();
+        }else if (year == 1983 || year == 1995 || year == 2007 || year == 2019) {
+            wheelView.setPosition(9);
+            Toast.makeText(this, "Your sign is pig", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
+
+

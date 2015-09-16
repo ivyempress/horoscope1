@@ -26,4 +26,7 @@
     <string name="fortune_cookie">Fortune cookie</string>
     <string name="title_activity_chinese">ChineseActivity</string>
     <string name="title_activity_fortune">FortuneActivity</string>
+    <string name="share">Share</string>
+    <string name="headfortune">Crack to open your fortune!</string>
+    <string name="calculate_sign">Calculate your sign</string>
 </resources>

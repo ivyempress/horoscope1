@@ -1,5 +1,6 @@
 package com.example.tata.horoskop;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -13,12 +14,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 import com.example.tata.horoskop.fragment.SignFragment;
 import com.lukedeighton.wheelview.WheelView;
 import com.lukedeighton.wheelview.adapter.WheelAdapter;
+
+import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     ViewPager viewPager;
@@ -32,7 +37,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_home);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(),R.drawable.leo));
+        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.leo));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -145,7 +150,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             public void onWheelItemSelected(WheelView wheelView, Drawable drawable, int i) {
                 switch (i) {
                     case 0:
-                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(),R.drawable.aries));
+                        viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.aries));
                         break;
                     case 1:
                         viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.taurus));
@@ -204,10 +209,20 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
+        Calendar calendar = Calendar.getInstance();
         //noinspection SimplifiableIfStatement
         if (id == R.id.contact) {
             startActivity(new Intent(this, ContactUsActivity.class));
+            return true;
+        }
+        if (id == R.id.calculate) {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    calculcateSign(monthOfYear + 1, dayOfMonth);
+                }
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+            datePickerDialog.show();
             return true;
         }
 
@@ -261,5 +276,46 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             return titles[position];
         }
 
+    }
+
+    public void calculcateSign(int month, int day) {
+        if ((month == 12 && day >= 22 && day <= 31) || (month == 1 && day >= 1 && day <= 19)){
+            Toast.makeText(this, "Your sign is capricorn", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(9);
+        } else if ((month == 1 && day >= 20 && day <= 31) || (month == 2 && day >= 1 && day <= 17)) {
+            Toast.makeText(this, "Your sign is aquarius", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(10);
+        } else if ((month == 2 && day >= 18 && day <= 29) || (month == 3 && day >= 1 && day <= 19)){
+            Toast.makeText(this, "Your sign is pisces", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(11);
+        } else if ((month == 3 && day >= 20 && day <= 31) || (month == 4 && day >= 1 && day <= 19)){
+            Toast.makeText(this, "Your sign is aries", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(0);
+        } else if ((month == 4 && day >= 20 && day <= 30) || (month == 5 && day >= 1 && day <= 20)){
+            Toast.makeText(this, "Your sign is taurus", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(1);
+        } else if ((month == 5 && day >= 21 && day <= 31) || (month == 6 && day >= 1 && day <= 20)){
+            Toast.makeText(this, "Your sign is gemini", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(2);
+        } else if ((month == 6 && day >= 21 && day <= 30) || (month == 7 && day >= 1 && day <= 22)){
+            Toast.makeText(this, "Your sign is cancer", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(3);
+        }        else if ((month == 7 && day >= 23 && day <= 31) || (month == 8 && day >= 1 && day <= 22)){
+            Toast.makeText(this, "Your sign is leo", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(4);
+        }        else if ((month == 8 && day >= 23 && day <= 31) || (month == 9 && day >= 1 && day <= 22)){
+            Toast.makeText(this, "Your sign is virgo", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(5);
+        }        else if ((month == 9 && day >= 23 && day <= 30) || (month == 10 && day >= 1 && day <= 22)){
+            Toast.makeText(this, "Your sign is libra", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(6);
+        }        else if ((month == 10 && day >= 23 && day <= 31) || (month == 11 && day >= 1 && day <= 21)){
+            Toast.makeText(this, "Your sign is scorpio", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(7);
+        }else if ((month == 11 && day >= 22 && day <= 30) || (month == 12 && day >= 1 && day <= 21)){
+            Toast.makeText(this, "Your sign is sagittarius", Toast.LENGTH_SHORT).show();
+            wheelView.setPosition(8);
+        } else
+            System.out.println("Illegal date");
     }
 }

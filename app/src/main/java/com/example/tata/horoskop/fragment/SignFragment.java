@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.tata.horoskop.R;
 
-import horoscopeapi.HoroscopeAPI;
 
 /**
  * Created by bataemperor on 12.9.15..
