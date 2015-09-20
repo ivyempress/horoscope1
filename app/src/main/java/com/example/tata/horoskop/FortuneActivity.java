@@ -3,6 +3,7 @@ package com.example.tata.horoskop;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -67,7 +68,7 @@ public class FortuneActivity extends AppCompatActivity {
 
         tv2.setVisibility(View.GONE);
         button.setVisibility(View.VISIBLE);
-        String url = "http://www.yerkee.com//api/fortune/cookie";
+        String url = "http://www.yerkee.com/api/fortune/cookie";
 
         // Request a string response
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -93,6 +94,7 @@ public class FortuneActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                Log.d("greska",error.networkResponse+"");
                 Toast.makeText(FortuneActivity.this,"Neuspesna konekcija",Toast.LENGTH_SHORT).show();
 
             }

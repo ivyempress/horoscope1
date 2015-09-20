@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.tata.horoskop.R;
+import com.example.tata.horoskop.model.Horoscope;
 
 
 /**
@@ -17,6 +18,7 @@ import com.example.tata.horoskop.R;
  */
 public class SignFragment extends Fragment {
     int signSrc;
+    String horo;
     TextView tvContent;
     @Nullable
     @Override
@@ -25,8 +27,10 @@ public class SignFragment extends Fragment {
         ImageView ivSign = (ImageView) view.findViewById(R.id.iv_sign);
         tvContent = (TextView) view.findViewById(R.id.tv_content);
         Bundle bundle = this.getArguments();
+        horo = bundle.getString("horo");
         signSrc = bundle.getInt("src", 0);
         ivSign.setImageResource(signSrc);
+        tvContent.setText(horo);
         return view;
     }
 }
