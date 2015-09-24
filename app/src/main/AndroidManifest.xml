@@ -21,27 +21,33 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home" >
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ZodiacSignsActivity"
-            android:label="@string/title_activity_zodiac_signs" >
+            android:label="@string/title_activity_zodiac_signs"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ContactUsActivity"
-            android:label="@string/title_activity_contact_us" >
+            android:label="@string/title_activity_contact_us"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".ChineseActivity"
-            android:label="@string/title_activity_chinese" >
+            android:label="@string/title_activity_chinese"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".FortuneActivity"
-            android:label="@string/title_activity_fortune" >
+            android:label="@string/title_activity_fortune"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
