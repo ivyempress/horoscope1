@@ -1,5 +1,7 @@
 package com.example.tata.horoskop;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,8 +19,8 @@ import com.example.tata.horoskop.view.FixedPageTransformer;
 import com.example.tata.horoskop.view.InfoViewPager;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
-
 
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         ViewGroup.LayoutParams params = pager.getLayoutParams();
         params.height = (int) (screenHeight * 0.6f);
         pager.setLayoutParams(params);
+
+        settingNotification();
 
         PagerAdapter adapter = new PagerAdapter(dummyList());
         pager.setAdapter(adapter);
@@ -64,6 +68,25 @@ public class MainActivity extends AppCompatActivity {
                 view.setAlpha(MIN_ALPHA + (scaleFactor - MIN_SCALE) / (1 - MIN_SCALE) * (1 - MIN_ALPHA));
             }
         });
+    }
+
+    private void settingNotification() {
+        Intent intent = new Intent(MainActivity.this, Receiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent, 0);
+        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        // Set the alarm to start at approximately 10:45 p.m.
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 10);
+        calendar.set(Calendar.MINUTE, 45);
+
+
+        // With setInexactRepeating(), you have to use one of the AlarmManager interval
+        // constants--in this case, AlarmManager.INTERVAL_DAY.
+        am.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, pendingIntent);
+
     }
 
     private List<Item> dummyList() {
