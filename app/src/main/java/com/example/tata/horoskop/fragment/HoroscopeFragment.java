@@ -12,14 +12,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.tata.horoskop.R;
-import com.example.tata.horoskop.ZodiacSignsActivity;
 import com.lukedeighton.wheelview.WheelView;
 import com.lukedeighton.wheelview.adapter.WheelAdapter;
 
 /**
  * Created by Ivana Lukic on 06-Sep-15.
  */
-public class HoroscopeFragment extends Fragment implements View.OnClickListener {
+public class HoroscopeFragment extends Fragment {
     ImageView aries, taurus, gemini, cancer, leo, virgo, libra, scorpio, sagittaurus, capricorn, aquarius, pisces;
     WheelView wheelView;
     ImageView ivImage;
@@ -27,7 +26,7 @@ public class HoroscopeFragment extends Fragment implements View.OnClickListener 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_home, container, false);
+        View view = inflater.inflate(R.layout.activity_horoscope, container, false);
         ivImage = (ImageView) view.findViewById(R.id.iv_image);
 
         wheelView = (WheelView) view.findViewById(R.id.wheelview);
@@ -185,10 +184,4 @@ public class HoroscopeFragment extends Fragment implements View.OnClickListener 
         return view;
     }
 
-
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(getActivity(), ZodiacSignsActivity.class);
-        startActivity(intent);
-    }
 }

@@ -3,21 +3,32 @@ package com.example.tata.horoskop;
 import android.app.Application;
 
 import com.example.tata.horoskop.model.Horoscope;
+import com.example.tata.horoskop.model.Zodiac;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class App extends Application {
-    public List<Horoscope> getLista() {
-        return lista;
+
+    public List<Horoscope> listHoroscope = new ArrayList<>();
+    public List<Zodiac> listZodiac = new ArrayList<>();
+
+    public List<Zodiac> getListZodiac() {
+        return listZodiac;
     }
 
-    public void setLista(List<Horoscope> lista) {
-        this.lista = lista;
+    public void setListZodiac(List<Zodiac> listZodiac) {
+        this.listZodiac = listZodiac;
     }
 
-    public List<Horoscope> lista = new ArrayList<>();
+    public List<Horoscope> getListHoroscope() {
+        return listHoroscope;
+    }
+
+    public void setListHoroscope(List<Horoscope> listHoroscope) {
+        this.listHoroscope = listHoroscope;
+    }
 
     private static App app = null;
 

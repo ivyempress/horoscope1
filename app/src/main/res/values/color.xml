@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#2C3E50</color>
+    <color name="accent">#648cb5</color>
+    <color name="theme">#41b51f</color>
+    <color name="grey300">#a90b21</color>
+    <color name="grey600">#b55452</color>
 </resources>

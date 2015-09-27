@@ -29,4 +29,9 @@
     <string name="share">Share</string>
     <string name="headfortune">Crack to open your fortune!</string>
     <string name="calculate_sign">Calculate your sign</string>
+    <string name="zodiac">Zodiac</string>
+    <string name="title_activity_settings_notification_activitz">SettingsNotificationActivitz
+    </string>
+    <string name="daliy_notification">Daily notification</string>
+    <string name="notifications">Notifications</string>
 </resources>

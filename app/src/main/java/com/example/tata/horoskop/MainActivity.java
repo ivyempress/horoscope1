@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         params.height = (int) (screenHeight * 0.6f);
         pager.setLayoutParams(params);
 
-        settingNotification();
+//        settingNotification();
 
         PagerAdapter adapter = new PagerAdapter(dummyList());
         pager.setAdapter(adapter);
@@ -74,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Receiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent, 0);
         AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
-
         // Set the alarm to start at approximately 10:45 p.m.
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
@@ -120,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openChineseHoroscope(View view) {
-        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+        Intent intent = new Intent(MainActivity.this, HoroscopeActivity.class);
         startActivity(intent);
     }
 
@@ -180,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     switch (position) {
                         case 0:
-                            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                            startActivity(new Intent(MainActivity.this, HoroscopeActivity.class));
                             break;
                         case 1:
                             startActivity(new Intent(MainActivity.this, ChineseActivity.class));

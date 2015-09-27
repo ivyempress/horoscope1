@@ -24,11 +24,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class FortuneActivity extends AppCompatActivity {
+public class FortuneActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView imageView;
+    ImageView imageView,btShare;
     TextView textView, tv2;
-    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,8 @@ public class FortuneActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.iv_imagefortune1);
         textView = (TextView) findViewById(R.id.tv_scrooltext);
         tv2 = (TextView) findViewById(R.id.tv_headtext1);
-        button = (Button) findViewById(R.id.buttonShare);
+        btShare = (ImageView) findViewById(R.id.btv_share);
+        btShare.setOnClickListener(this);
     }
 
     @Override
@@ -58,6 +58,10 @@ public class FortuneActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.notification) {
+            startActivity(new Intent(this, SettingsNotificationActivity.class));
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -67,7 +71,6 @@ public class FortuneActivity extends AppCompatActivity {
         imageView.setImageResource(R.drawable.fortune2);
 
         tv2.setVisibility(View.GONE);
-        button.setVisibility(View.VISIBLE);
         String url = "http://www.yerkee.com/api/fortune/cookie";
 
         // Request a string response
@@ -84,6 +87,10 @@ public class FortuneActivity extends AppCompatActivity {
                                     .duration(700)
                                     .playOn(textView);
                             textView.setText(fortune);
+                            btShare.setVisibility(View.VISIBLE);
+                            YoYo.with(Techniques.Tada)
+                                    .duration(700)
+                                    .playOn(btShare);
 
                         } catch (JSONException e) {
                             Toast.makeText(FortuneActivity.this,"Neuspesna konekcija",Toast.LENGTH_SHORT).show();
@@ -104,10 +111,17 @@ public class FortuneActivity extends AppCompatActivity {
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
-    public void shareClick(View view) {
+    public void shareClick() {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, "I find my fortune on Horoscope APP http://www.google.com/");
+        intent.putExtra(Intent.EXTRA_TEXT, textView.getText().toString()+"\n\n"+"I find my fortune on Horoscope APP http://www.google.com/");
         startActivity(Intent.createChooser(intent, "Share with"));
+    }
+
+    @Override
+    public void onClick(View v) {
+        if  (v.getId()==R.id.btv_share){
+            shareClick();
+        }
     }
 }

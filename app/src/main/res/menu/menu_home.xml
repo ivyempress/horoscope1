@@ -1,9 +1,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.tata.horoskop.HomeActivity">
-    <item android:id="@+id/contact" android:title="@string/contact_us"
-        android:orderInCategory="100" app:showAsAction="never" />
-    <item android:id="@+id/calculate" android:title="@string/calculate_sign"
-        android:orderInCategory="100" app:showAsAction="never"/>
+    tools:context="com.example.tata.horoskop.HoroscopeActivity">
+    <item
+        android:id="@+id/contact"
+        android:orderInCategory="100"
+        android:title="@string/contact_us"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/calculate"
+        android:orderInCategory="100"
+        android:title="@string/calculate_sign"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/notification"
+        android:orderInCategory="100"
+        android:title="@string/notifications"
+        app:showAsAction="never" />
 </menu>

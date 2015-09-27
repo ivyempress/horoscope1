@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,13 +27,12 @@ import com.lukedeighton.wheelview.adapter.WheelAdapter;
 import java.util.Calendar;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class HoroscopeActivity extends AppCompatActivity{
     ViewPager viewPager;
     WheelView wheelView;
     ImageView ivImage;
     Toolbar toolbar;
-    List<Horoscope> lista = App.get().getLista();
-    int signSrc;
+    List<Horoscope> lista = App.get().getListHoroscope();
     TextView tvSign,tvDate;
     TextView tvContent;
     ImageView ivSign;
@@ -42,7 +40,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_horoscope);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(new AdapterHoroscope(getSupportFragmentManager(), R.drawable.aries, lista.get(0)));
@@ -239,11 +237,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(HomeActivity.this, ZodiacSignsActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -260,6 +253,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         int id = item.getItemId();
         Calendar calendar = Calendar.getInstance();
         //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home){
+            super.onBackPressed();
+            return true;
+        }
         if (id == R.id.contact) {
             startActivity(new Intent(this, ContactUsActivity.class));
             return true;
@@ -272,6 +269,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
             datePickerDialog.show();
+            return true;
+        }
+        if (id == R.id.notification) {
+            startActivity(new Intent(this, SettingsNotificationActivity.class));
             return true;
         }
 
